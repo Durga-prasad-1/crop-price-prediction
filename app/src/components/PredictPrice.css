@@ -1,80 +1,76 @@
+/* PredictPrice.css */
+
 body {
-    margin: 0;
-    padding: 0;
-    font-family: "Arial", sans-serif;
-    background: linear-gradient(135deg, #d4fc79, #96e6a1); /* Matching theme color */
-  }
-  
-  .predict-price-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Full viewport height */
-    padding-top: 80px; /* To account for fixed navbar */
-    box-sizing: border-box;
-    color: #333;
-  }
-  
-  .title {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #2c662d;
-  }
-  
-  .predict-price-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 400px;
-    width: 100%;
-    margin: 0 auto; /* Center the form */
-    padding: 2rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-  }
-  
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-  
-  .predict-price-form label {
-    display: block;
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 0.5rem;
-  }
-  
-  .predict-price-form input {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-  }
-  
-  .submit-button {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .submit-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .result {
-    margin-top: 1.5rem;
-    text-align: center;
-    color: #333;
-  }
-  
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #d4fc79, #96e6a1); /* Matching theme color */
+}
+
+.predict-page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  box-sizing: border-box;
+}
+
+.predict-price-container {
+  max-width: 400px;
+  width: 100%;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #2c662d;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.predict-price-form label {
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.predict-price-form input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.result {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #333;
+}
