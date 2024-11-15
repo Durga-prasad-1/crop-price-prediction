@@ -4,7 +4,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #d4fc79, #96e6a1); /* Matching theme color */
+  background: linear-gradient(135deg, #d4fc79, #96e6a1);
+   /* Matching theme color */
 }
 
 .predict-page-wrapper {
