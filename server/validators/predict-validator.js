@@ -1,16 +1,16 @@
 const z  = require("zod");
 const predictSchema = z.object({
-    state: z
-    .string({required_error:"State is required"})
+    days: z
+    .string({required_error:"days is required"})
+    .trim(),
+    market:z
+    .string({required_error:"market should be there"}) 
     .trim(),
     commodity:z
-    .string({required_error:"Commodity should be there"}) 
+    .string({required_error:"commodity is required"})
     .trim(),
-    date:z
-    .string({required_error:"Date is required"})
-    .trim(),
-    price:z
-    .string({required_error:"price is required"})
+    district:z
+    .string({required_error:"district is required"})
     .trim()
 });
 module.exports = predictSchema;
