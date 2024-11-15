@@ -1,0 +1,65 @@
+/* Home.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #d4fc79, #96e6a1);
+  }
+  
+  .home-container {
+    text-align: center;
+    padding: 50px 20px;
+    color: #333;
+  }
+  
+  .home-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #2c662d;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .home-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #555;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .home-button {
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .home-button.predict {
+    background-color: #28a745;
+  }
+  
+  .home-button.previous {
+    background-color: #007bff;
+  }
+  
+  .home-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .home-button:active {
+    transform: scale(1);
+    box-shadow: none;
+  }
+  
