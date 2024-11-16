@@ -1,20 +1,21 @@
 /* PredictPrice.css */
-
-body {
+body, html {
   margin: 0;
   padding: 0;
-  font-family: "Arial", sans-serif;
+  height: 100%; /* Ensure full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: linear-gradient(135deg, #d4fc79, #96e6a1);
-   /* Matching theme color */
+  font-family: "Arial", sans-serif;
 }
 
 .predict-page-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
-  width: 100vw; /* Full viewport width */
-  box-sizing: border-box;
+  width: 100vw; /* Take full width */
+  height: 100vh; /* Take full height */
 }
 
 .predict-price-container {
@@ -25,6 +26,7 @@ body {
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  text-align: center; /* Align text inside */
 }
 
 .title {

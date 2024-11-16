@@ -19,6 +19,8 @@ align-items: center;
 
 .overlay {
 background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+margin-left: 8%;
+margin-right: 10%;
 padding: 50px;
 border-radius: 10px;
 text-align: center;
