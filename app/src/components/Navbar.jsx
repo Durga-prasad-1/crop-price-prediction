@@ -86,7 +86,7 @@ const styles = {
   },
   title: { 
     margin: 0, 
-    fontSize: "1.5rem",
+    fontSize: "2rem",
     fontWeight: "bold",
   },
   linkContainer: {
@@ -96,7 +96,7 @@ const styles = {
   link: {
     color: "white",
     textDecoration: "none",
-    fontSize: "1rem",
+    fontSize: "1.3rem",
     fontWeight: "500",
     padding: "0.5rem 1rem",
     borderRadius: "5px",
