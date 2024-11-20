@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 /* PredictPrice.css */
+>>>>>>> 3958c289da8b560ba2d731c1d22768a633681deb
 body, html {
   margin: 0;
   padding: 0;
@@ -19,6 +22,7 @@ body, html {
 }
 
 .predict-price-container {
+  margin-top: 100px;
   max-width: 400px;
   width: 100%;
   padding: 2rem;

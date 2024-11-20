@@ -1,69 +1,66 @@
 import React, { useState, useEffect } from "react";
-import { Line } from "react-chartjs-2";
+// import { Line } from "react-chartjs-2";
 import "chart.js/auto";
 import "./PreviousPrices.css";
-
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 const PreviousPrices = () => {
   const [prices, setPrices] = useState([]);
+  const [data,setData] = useState([]);
   const [filteredPrices, setFilteredPrices] = useState([]);
-  const [state, setState] = useState("");
   const [district, setDistrict] = useState("");
   const [market, setMarket] = useState("");
   const [commodity, setCommodity] = useState("");
+  const [error, setError] = useState('');
 
-  useEffect(() => {
-    const fetchPrices = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/previous-prices");
-        const data = await response.json();
-        setPrices(data);
-      } catch (error) {
-        console.error("Error fetching previous prices:", error);
+  // useEffect(() => {
+  //   const fetchPrices = async () => {
+  //     try {
+  //       const response = await fetch("http://localhost:5000/previous-prices");
+  //       const data = await response.json();
+  //       setPrices(data);
+  //     } catch (error) {
+  //       console.error("Error fetching previous prices:", error);
+  //     }
+  //   };
+
+  //   fetchPrices();
+  // }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(''); // Clear previous errors
+    const payload = {commodity,market,district};
+    try {
+      console.log(payload)
+      const response = await fetch("http://127.0.0.1:8800/api/extract", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      // console.log(response);
+      // setData(response.data);
+      const result = response.json();
+      result
+      .then((data)=>setData(data.data))
+      .catch((err)=>console.log(err));
+      console.log(data);
+    } catch (err) {
+      if (err.response) {
+        setError(err.response.data.message || 'Error fetching data');
+      } else {
+        setError('Server error. Please try again later.');
       }
-    };
-
-    fetchPrices();
-  }, []);
-
-  const handleFilter = () => {
-    const filtered = prices.filter(
-      (price) =>
-        (state ? price.state.toLowerCase() === state.toLowerCase() : true) &&
-        (district ? price.district.toLowerCase() === district.toLowerCase() : true) &&
-        (market ? price.market.toLowerCase() === market.toLowerCase() : true) &&
-        (commodity ? price.commodity.toLowerCase() === commodity.toLowerCase() : true)
-    );
-    setFilteredPrices(filtered);
+    }
   };
 
-  const chartData = {
-    labels: filteredPrices.map((price, index) => `Day ${index + 1}`),
-    datasets: [
-      {
-        label: `${commodity || "Commodity"} Price Over Time`,
-        data: filteredPrices.map((price) => price.price),
-        fill: false,
-        borderColor: "rgba(75,192,192,1)",
-        backgroundColor: "rgba(75,192,192,0.4)",
-        tension: 0.1,
-      },
-    ],
-  };
 
   return (
     <div className="container">
       <h2>Previous Day Prices</h2>
 
       <div className="form">
-        <div className="form-group">
-          <label>State:</label>
-          <input
-            type="text"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-          />
-        </div>
+        
         <div className="form-group">
           <label>District:</label>
           <input
@@ -90,20 +87,17 @@ const PreviousPrices = () => {
         </div>
       </div>
 
-      <button onClick={handleFilter} className="filter-button">
+      <button onClick={handleSubmit} className="filter-button">
         Filter Prices
       </button>
-
-      {filteredPrices.length > 0 ? (
-        <div className="chart-container">
-          <Line
-            data={chartData}
-            options={{ responsive: true, maintainAspectRatio: false }}
-          />
-        </div>
-      ) : (
-        <p>No data available for the selected filters.</p>
-      )}
+      <LineChart width={600} height={300} data={data}>
+        <Line type="monotone" dataKey="Modal_Price" stroke="#8884d8" />
+          <CartesianGrid stroke="#ccc" />
+          <XAxis dataKey="Arrival_Date" />
+          <YAxis />
+      </LineChart>
+      
+      {/* <Chatbot/> */}
     </div>
   );
 };
